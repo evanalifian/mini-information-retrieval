@@ -1,5 +1,6 @@
 from read_documents import documents as docs
 from text_preprocessing import TextPreprocessing
+from inverted_index import InvertedIndex
 
 # stopwords list
 stopwords = ["dengan", "dan", "untuk", "pada", "di", "dari", "yang", "karena", "akibat"]
@@ -33,34 +34,14 @@ avgl = (d4 + d5 + d6 + d7 + d8) / len(total_docs[1:]) #avgl value
 
 
 # >= step 3: corpus
-# only document (without query)
-doc_tokens = {k: v for k, v in tokens.items() if k != "q"}
+corpus = InvertedIndex(tokens)
 
-# take all unique terms
-corpus = set()
-for t in doc_tokens.values():
-    corpus.update(t)
+corpus.take_unique_term()
+corpus.create_corpus_table()
 
-corpus = sorted(corpus)
+corpus_table = corpus.corpus_table
 
-
-# create corpus table
-corpus_table = {}
-
-for term in corpus:
-    corpus_table[term] = {}
-    df = 0
-
-    for doc, words in doc_tokens.items():
-        tf = words.count(term)
-        corpus_table[term][doc] = tf
-
-        if tf > 0:
-            df += 1
-
-    corpus_table[term]["dft"] = df
-
-for k, v in corpus_table.items():
-    print(k)
-    print(v)
+for term, doc in corpus_table.items():
+    print(term)
+    print(doc)
     print()
