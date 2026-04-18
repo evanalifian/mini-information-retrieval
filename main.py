@@ -1,6 +1,7 @@
 from read_documents import documents as docs
 from text_preprocessing import TextPreprocessing
 from inverted_index import InvertedIndex
+from bm25 import BM25
 
 # stopwords list
 stopwords = ["dengan", "dan", "untuk", "pada", "di", "dari", "yang", "karena", "akibat"]
@@ -44,7 +45,19 @@ corpus.create_corpus_table()
 # get corpus taable
 corpus_table = corpus.corpus_table
 
-for term, doc in corpus_table.items():
-    print(term)
-    print(doc)
-    print()
+# for term, doc in corpus_table.items():
+#     print(term)
+#     print(doc)
+#     print()
+
+
+
+# inisialisasi BM25
+bm25 = BM25(tokens, corpus_table, avgl)
+
+# hitung ranking
+ranking = bm25.rank()
+
+print("\n=== HASIL RANKING BM25 ===")
+for doc, score in ranking:
+    print(f"{doc}: {score:.4f}")
