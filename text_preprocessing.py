@@ -1,5 +1,6 @@
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 
+
 class TextPreprocessing:
     tokens = {}
 
@@ -9,9 +10,7 @@ class TextPreprocessing:
         self.__docs = docs
 
     def tokenization(self):
-        self.tokens = {
-            "q": self.__query.split()
-        }
+        self.tokens = {"q": self.__query.split()}
 
         for doc, word in zip(self.__docs.keys(), self.__docs.values()):
             self.tokens[doc] = word.split()
@@ -38,6 +37,6 @@ class TextPreprocessing:
             words = " ".join(token)
             opt = stemmer.stem(words)
             self.tokens[key] = opt.split()
-    
+
     def get_doc_length(self, doc):
         return len(doc)

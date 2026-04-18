@@ -4,7 +4,34 @@ from inverted_index import InvertedIndex
 from bm25 import BM25
 
 # stopwords list
-stopwords = ["dengan", "dan", "untuk", "pada", "di", "dari", "yang", "karena", "akibat"]
+stopwords = [
+    "dengan",
+    "dan",
+    "untuk",
+    "pada",
+    "di",
+    "dari",
+    "yang",
+    "karena",
+    "akibat",
+    "penelitian",
+    "hasil",
+    "metode",
+    "data",
+    "analisis",
+    "studi",
+    "artikel",
+    "jurnal",
+    "penulis",
+    "berdasarkan",
+    "menunjukkan",
+    "dapat",
+    "dilakukan",
+    "tahun",
+    "terhadap",
+    "antara",
+    "dalam",
+]
 # query
 query = "Pencegahan demam tinggi"
 
@@ -31,7 +58,7 @@ for k in tokens:
     total_doc_length += tp.get_doc_length(tokens[k])
 
 # calulate avgl
-avgl = total_doc_length / len(list(tokens.values())[1:]) #avgl value
+avgl = total_doc_length / len(list(tokens.values())[1:])  # avgl value
 
 
 # >= step 3: corpus table
@@ -42,7 +69,6 @@ corpus.take_unique_term()
 corpus.create_corpus_table()
 # get corpus taable
 corpus_table = corpus.corpus_table
-
 
 
 # inisialisasi BM25

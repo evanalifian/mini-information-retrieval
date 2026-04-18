@@ -1,5 +1,6 @@
 import math
 
+
 class BM25:
     def __init__(self, tokens, corpus_table, avgdl, k1=1.2, b=0.75):
         # ambil dokumen saja (tanpa query)
