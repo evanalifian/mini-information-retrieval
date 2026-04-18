@@ -1,6 +1,6 @@
 # mini-information-retrieval
 
-we create our mini 'search engine'using python based on our midterm exam.
+we create our mini 'search engine'using python based on our midterm exam. we're using **bm25** for ranking documents.
 
 ## How to clone this project
 
