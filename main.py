@@ -33,7 +33,7 @@ stopwords = [
     "dalam",
 ]
 # query
-query = "Pencegahan demam tinggi"
+query = input("Masukkan query: ")
 
 
 # >= step 1: text preprocessing
@@ -77,6 +77,9 @@ bm25 = BM25(tokens, corpus_table, avgl)
 # hitung ranking
 ranking = bm25.rank()
 
-print("\n=== HASIL RANKING BM25 ===")
-for doc, score in ranking:
-    print(f"{doc}: {score:.4f}")
+if all(score == 0 for _, score in ranking):
+    print("\nTidak ada dokumen yang relevan dengan query.")
+else:
+    print("\n=== HASIL RANKING BM25 ===")
+    for doc, score in ranking:
+        print(f"{doc}: {score:.4f}")
