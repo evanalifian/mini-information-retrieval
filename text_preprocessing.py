@@ -24,11 +24,8 @@ class TextPreprocessing:
             self.tokens[key] = arr
 
     def stopword_removal(self):
-        for key, token in zip(self.tokens.keys(), self.tokens.values()):
-            for stopword in self.__stopwords:
-                if stopword in token:
-                    token.remove(stopword)
-            self.tokens[key] = token
+        for key, token in self.tokens.items():
+            self.tokens[key] = [word for word in token if word not in self.__stopwords]
 
     def stemming(self):
         factory = StemmerFactory()
