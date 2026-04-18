@@ -24,16 +24,14 @@ tokens = tp.tokens
 
 
 # >= step 2: get documents length and create inverted index
-q = tp.get_doc_length(tokens["q"])
-d4 = tp.get_doc_length(tokens["d4"])
-d5 = tp.get_doc_length(tokens["d5"])
-d6 = tp.get_doc_length(tokens["d6"])
-d7 = tp.get_doc_length(tokens["d7"])
-d8 = tp.get_doc_length(tokens["d8"])
-# get all docs
-total_docs = list(tokens.values())
+# sum all doc length
+total_doc_length = 0
+
+for k in tokens:
+    total_doc_length += tp.get_doc_length(tokens[k])
+
 # calulate avgl
-avgl = (d4 + d5 + d6 + d7 + d8) / len(total_docs[1:]) #avgl value
+avgl = total_doc_length / len(list(tokens.values())[1:]) #avgl value
 
 
 # >= step 3: corpus table
@@ -44,11 +42,6 @@ corpus.take_unique_term()
 corpus.create_corpus_table()
 # get corpus taable
 corpus_table = corpus.corpus_table
-
-# for term, doc in corpus_table.items():
-#     print(term)
-#     print(doc)
-#     print()
 
 
 
