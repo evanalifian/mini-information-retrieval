@@ -1,7 +1,7 @@
-from read_documents import documents as docs
-from text_preprocessing import TextPreprocessing
-from inverted_index import InvertedIndex
-from bm25 import BM25
+from services.read_documents import documents as docs
+from services.text_preprocessing import TextPreprocessing
+from services.inverted_index import InvertedIndex
+from services.bm25 import BM25
 
 # stopwords list
 stopwords = [
