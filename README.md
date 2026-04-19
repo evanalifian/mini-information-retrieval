@@ -8,6 +8,7 @@ first, you need to clone this repo and create **virtual environement**.
 
 ```bash
 git clone https://github.com/evanalifian/mini-information-retrieval.git
+cd mini-information-retrieval
 python -m venv env
 ```
 
