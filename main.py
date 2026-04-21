@@ -3,41 +3,13 @@ from services.text_preprocessing import TextPreprocessing
 from services.inverted_index import InvertedIndex
 from services.bm25 import BM25
 
-# stopwords list
-stopwords = [
-    "dengan",
-    "dan",
-    "untuk",
-    "pada",
-    "di",
-    "dari",
-    "yang",
-    "karena",
-    "akibat",
-    "penelitian",
-    "hasil",
-    "metode",
-    "data",
-    "analisis",
-    "studi",
-    "artikel",
-    "jurnal",
-    "penulis",
-    "berdasarkan",
-    "menunjukkan",
-    "dapat",
-    "dilakukan",
-    "tahun",
-    "terhadap",
-    "antara",
-    "dalam",
-]
+
 # query
 query = input("Masukkan query: ")
 
 
 # >= step 1: text preprocessing
-tp = TextPreprocessing(stopwords, query, docs)
+tp = TextPreprocessing(query, docs)
 # tokenization
 tp.tokenization()
 # case folding
