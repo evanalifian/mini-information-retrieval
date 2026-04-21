@@ -49,10 +49,6 @@ tp.stemming()
 # get tokens
 tokens = tp.tokens
 
-for i in tokens.values():
-    print(i)
-    print()
-
 
 # >= step 2: get documents length and create inverted index
 # sum all doc length
