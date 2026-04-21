@@ -62,4 +62,4 @@ class BM25:
     def rank(self):
         scores = self.calculate_score()
         ranked = sorted(scores.items(), key=lambda x: x[1], reverse=True)
-        return ranked
+        return ranked[:10]
