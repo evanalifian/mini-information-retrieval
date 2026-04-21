@@ -16,7 +16,7 @@ app = FastAPI()
 
 
 # create route '/' API
-@app.get("/search")
+@app.get("/api/search")
 def read_root(q: str = ""):
     # >= step 1: text preprocessing
     tp = TextPreprocessing(q, docs)
@@ -50,9 +50,9 @@ def read_root(q: str = ""):
     # get corpus taable
     corpus_table = corpus.corpus_table
 
+    # >= 4: calculate similarity using BM25
     # inisialisasi BM25
     bm25 = BM25(tokens, corpus_table, avgl)
-
     # hitung ranking
     ranking = bm25.rank()
 
