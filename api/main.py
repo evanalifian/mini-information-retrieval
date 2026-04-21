@@ -56,4 +56,4 @@ def read_root(q: str = ""):
     # hitung ranking
     ranking = bm25.rank()
 
-    return {"q": q, "result": ranking}
+    return {"q": q, "results": ranking}
