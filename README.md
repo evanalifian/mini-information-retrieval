@@ -29,11 +29,11 @@ pip install -r .\requirements.txt
 If you have already clone this repo, you can run this repo by these commands:
 
 ```bash
-uvicorn api.main:app --reload
+uvicorn api.main:app --reload --port 8080
 ```
 
 After you run the API, now type `http://127.0.0.1:8000/search` on your browser or API tools like [Postman](https://www.postman.com/). Then you need to pass a **query** on the URL, and you see the result.
 
 ```bash
-http://127.0.0.1:8000/search?q=Pencegahan%20demam%20berdarah
+http://127.0.0.1:8080/search?q=Pencegahan%20demam%20berdarah
 ```
