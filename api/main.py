@@ -28,7 +28,8 @@ app.add_middleware(
 @app.get("/api/search")
 def read_root(q: str = ""):
     # >= step 1: text preprocessing
-    tp = TextPreprocessing(q, docs)
+    docs_txt = {k: v[0] for k, v in docs.items()}
+    tp = TextPreprocessing(q, docs_txt)
     # tokenization
     tp.tokenization()
     # case folding

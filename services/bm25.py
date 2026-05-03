@@ -1,5 +1,5 @@
 import math
-
+from services.read_documents import documents
 
 class BM25:
     def __init__(self, tokens, corpus_table, avgdl, k1=1.2, b=0.75):
@@ -65,14 +65,13 @@ class BM25:
         results = []
 
         for i in ranked[:10]:
-            f = open(f"./documents/{i[0]}", "r")
+            doc_id = i[0]
 
             results.append({
-                "document": i[0],
+                "document": doc_id,
                 "score": i[1],
-                "body": f.read()
+                "body": documents[doc_id][0],   # ambil judul
+                "link": documents[doc_id][1]    # ambil link (opsional)
             })
-
-            f.close()
 
         return results
